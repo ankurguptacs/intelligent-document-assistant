@@ -1,10 +1,13 @@
 import requests
+import os
 
 
 class LLMService:
 
     def __init__(
-        self, model: str = "gemma3", ollama_url: str = "http://localhost:11434"
+        self,
+        model: str = os.getenv("LLM_MODEL", "gemma3"),
+        ollama_url: str = os.getenv("OLLAMA_URL", "http://localhost:11434"),
     ):
 
         self.model = model
